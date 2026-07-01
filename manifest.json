@@ -1,0 +1,13 @@
+{
+  "name": "MiSTer Monitor CYD35R (touch test)",
+  "version": "test",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "cyd35r-display-test.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
