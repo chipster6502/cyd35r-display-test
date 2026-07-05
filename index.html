@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MiSTer Monitor — CYD 3.5" touch test (resistive)</title>
+    <title>MiSTer Monitor — CYD 3.5" firmware update (resistive)</title>
     <script
       type="module"
       src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js"
@@ -24,58 +24,16 @@
         padding: 20px;
         margin: 24px 0;
       }
-      ol { padding-left: 20px; }
-      li { margin: 8px 0; }
-      .note { color: #666; font-size: 0.9rem; }
-      .ask {
-        background: #eef7ee;
-        border: 1px solid #bcdcbc;
-        border-radius: 8px;
-        padding: 12px 16px;
-      }
-      .ask ul { margin: 8px 0 0; padding-left: 20px; }
-      .warn {
-        background: #fff8e1;
-        border: 1px solid #ffe082;
-        border-radius: 8px;
-        padding: 12px 16px;
-        font-size: 0.92rem;
-      }
-      code { background: #f2f2f2; padding: 1px 5px; border-radius: 4px; }
     </style>
   </head>
   <body>
-    <h1>MiSTer Monitor — touch test (CYD 3.5" resistive)</h1>
+    <h1>MiSTer Monitor — firmware update (CYD 3.5" resistive)</h1>
 
-    <p>
-      This build adds support for the <strong>resistive</strong> touchscreen on
-      your board. The display already works; this time we're testing the
-      <strong>touch</strong>. It flashes from your browser — nothing to install.
-    </p>
+    <p>This flashes the latest firmware for your board.</p>
 
     <div class="card">
-      <p><strong>Steps:</strong></p>
-      <ol>
-        <li>Use a <strong>computer</strong> (not a phone) with <strong>Chrome</strong> or <strong>Edge</strong>.</li>
-        <li>Connect the board with a <strong>USB-C data cable</strong> (not a charge-only one).</li>
-        <li>Click <strong>Install / Connect</strong>, pick the port and wait without touching anything until it finishes.</li>
-      </ol>
       <p>
         <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
-      </p>
-      <p class="note">Firefox and Safari won't work (they lack Web Serial).</p>
-    </div>
-
-    <div class="ask">
-      <strong>After it boots, please tap the screen and tell me:</strong>
-      <ul>
-        <li>Does the touch <strong>respond at all</strong> (does anything react when you tap)?</li>
-        <li>If it responds, does it land <strong>where you tap</strong>, or is it offset / in the wrong place?</li>
-        <li>Do the axes feel <strong>correct</strong>, or swapped / inverted (you tap one side and it reacts on the other)?</li>
-      </ul>
-      <p class="note" style="margin-bottom:0">
-        The touch calibration is a first estimate, so some inaccuracy is expected —
-        your feedback is exactly what I need to fine-tune it.
       </p>
     </div>
   </body>
