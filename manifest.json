@@ -1,12 +1,12 @@
 {
-  "name": "MiSTer Monitor CYD35R",
-  "version": "2.5.1-beta",
+  "name": "MiSTer Monitor CYD35R (touch invert test)",
+  "version": "2.11.1-touch-invert-test",
   "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
-        { "path": "cyd35r-display-test-v2.bin", "offset": 0 }
+        { "path": "cyd35r-touch-invert-test.bin", "offset": 0 }
       ]
     }
   ]

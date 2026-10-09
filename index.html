@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MiSTer Monitor — CYD 3.5" firmware update (resistive)</title>
+    <title>MiSTer Monitor — CYD 3.5" resistive touch test</title>
     <script
       type="module"
       src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js"
@@ -18,6 +18,10 @@
         color: #1a1a1a;
       }
       h1 { font-size: 1.4rem; }
+      h2 { font-size: 1.1rem; margin-top: 28px; }
+      code, pre { background: #f3f3f3; border-radius: 4px; }
+      code { padding: 1px 4px; }
+      pre { padding: 10px 12px; overflow-x: auto; }
       .card {
         border: 1px solid #ddd;
         border-radius: 10px;
@@ -27,14 +31,44 @@
     </style>
   </head>
   <body>
-    <h1>MiSTer Monitor — firmware update (CYD 3.5" resistive)</h1>
+    <h1>MiSTer Monitor — touch test build (CYD 3.5" resistive)</h1>
 
-    <p>This flashes the latest firmware for your board.</p>
+    <p>
+      Test build of 2.11.1 with two new <code>config.ini</code> options,
+      <code>touch_invert_x</code> and <code>touch_invert_y</code>, for 3.5"
+      resistive boards whose touch lands mirrored from the buttons on screen.
+      With both options off it behaves exactly like 2.11.1.
+    </p>
 
     <div class="card">
       <p>
         <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
       </p>
     </div>
+
+    <h2>Enable the option</h2>
+    <p>
+      Add this under the <code>[ui]</code> section of <code>config.ini</code>,
+      either on the SD card or from the display's web editor at
+      <code>http://&lt;display-ip&gt;:8080/config</code>, then reboot:
+    </p>
+    <pre>touch_invert_y=true</pre>
+    <p>
+      If taps also land mirrored left to right, add
+      <code>touch_invert_x=true</code> as well.
+    </p>
+
+    <h2>What to check</h2>
+    <p>With <code>flip_display=false</code> and then <code>flip_display=true</code>:</p>
+    <ul>
+      <li>PRV, SCN and NXT in the footer</li>
+      <li>GAME INFO page: tapping above the footer toggles 1/2 and 2/2</li>
+      <li>RetroAchievements list: row taps open the right row</li>
+      <li>Tap to leave standby, and tap to bring the footer back with <code>kiosk_mode=true</code></li>
+    </ul>
+    <p>
+      The serial monitor (115200 baud) prints <code>[TOUCH] Inverted axes</code>
+      at boot when the option is read, and the coordinates of every tap.
+    </p>
   </body>
 </html>
